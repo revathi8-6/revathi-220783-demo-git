@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Clone - Signup</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h2 class="logo">YouTube</h2>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="login.html" class="nav-link">Login</a>
+    <a href="table.html" class="nav-link">Table</a>
+  </header>
+
+  <!-- Signup Form -->
+  <div class="form-container">
+    <div class="form-box">
+      <h2>Create Account</h2>
+      <p>Signup to start using YouTube Clone</p>
+
+      <form>
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Password</label>
+        <input type="password" placeholder="Create password" required>
+
+        <label>Gender</label>
+        <div class="radio-group">
+          <input type="radio" name="gender"> Male
+          <input type="radio" name="gender"> Female
+        </div>
+
+        <label>
+          <input type="checkbox" required>
+          I agree to Terms & Conditions
+        </label>
+
+        <button class="btn primary">Signup</button>
+        <button class="btn disabled" disabled>Disabled</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
