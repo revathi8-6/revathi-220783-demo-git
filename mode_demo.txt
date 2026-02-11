@@ -1,0 +1,2 @@
+w+ mode erases old data and writes new content
+Appending using a+ mode
