@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Clone</title>
+    <style>
+        body { font-family: Arial; }
+        .video-box { border: 1px solid black; padding: 10px; margin: 10px; }
+        .highlight { background-color: yellow; }
+    </style>
+</head>
+<body>
+
+<h1>YouTube Clone</h1>
+
+<!-- VARIABLES SECTION -->
+<h2>Channel Info</h2>
+<p id="channelName"></p>
+<p id="subCount"></p>
+<button onclick="updateSubscribers()">Increase Subscribers</button>
+
+<!-- FUNCTIONS SECTION -->
+<h2>Video Actions</h2>
+<button onclick="likeVideo()">Like Video</button>
+<button onclick="showMessage()">Show Welcome</button>
+
+<!-- OBJECT + METHODS -->
+<h2>Video Details</h2>
+<p id="videoInfo"></p>
+<button id="updateVideoBtn">Update Video</button>
+
+<!-- POPUPS -->
+<h2>User Interaction</h2>
+<button onclick="userInteraction()">Enter Name</button>
+<p id="userOutput"></p>
+
+<!-- EVENTS -->
+<h2>Event Demo</h2>
+<input type="text" id="searchBox" placeholder="Search videos...">
+<p id="searchOutput"></p>
+
+<div class="video-box" id="videoBox">Hover over me!</div>
+
+<script>
+/* =========================
+   1. VARIABLES
+========================= */
+const channel = "Tech World";   // const
+let subscribers = 1000;        // let
+
+document.getElementById("channelName").innerText = "Channel: " + channel;
+document.getElementById("subCount").innerText = "Subscribers: " + subscribers;
+
+function updateSubscribers() {
+    subscribers += 100; // reassignment (let)
+    document.getElementById("subCount").innerText = "Subscribers: " + subscribers;
+    console.log(subscribers);
+}
+
+// Attempt to change const (will error if uncommented)
+// channel = "New Channel"; 
+
+/* =========================
+   2. FUNCTIONS
+========================= */
+
+// Function Declaration
+function likeVideo() {
+    alert("You liked the video!");
+}
+
+// Function Expression
+const showMessage = function() {
+    document.body.style.backgroundColor = "lightblue";
+};
+
+// Arrow Function
+const addNumbers = (a, b) => {
+    return a + b;
+};
+
+console.log("Sum:", addNumbers(5, 3));
+
+/*3. OBJECT*/
+let video = {
+    title: "JavaScript Basics",
+    views: 5000,
+    isLive: false
+};
+
+// Dot notation
+console.log(video.title);
+
+// Bracket notation
+console.log(video["views"]);
+
+document.getElementById("videoInfo").innerText =
+    video.title + " - Views: " + video.views;
+
+/* =========================
+   4. METHODS
+========================= */
+video.updateViews = function(newViews) {
+    this.views = newViews;
+    return this.views;
+};
+
+document.getElementById("updateVideoBtn").addEventListener("click", function() {
+    let newViews = video.updateViews(8000);
+    document.getElementById("videoInfo").innerText =
+        video.title + " - Views: " + newViews;
+});
+
+/* =========================
+   5. POP-UP BOXES
+========================= */
+function userInteraction() {
+    let name = prompt("Enter your name:");
+    
+    if (name) {
+        let confirmAction = confirm("Do you want to subscribe?");
+        
+        if (confirmAction) {
+            alert("Subscribed successfully!");
+            document.getElementById("userOutput").innerText =
+                name + " subscribed!";
+        } else {
+            document.getElementById("userOutput").innerText =
+                name + " did not subscribe.";
+        }
+    }
+}
+
+/* =========================
+   6. EVENTS
+========================= */
+
+// Input event
+document.getElementById("searchBox").addEventListener("input", function() {
+    document.getElementById("searchOutput").innerText =
+        "Searching for: " + this.value;
+});
+
+// Mouseover event (style change)
+document.getElementById("videoBox").addEventListener("mouseover", function() {
+    this.classList.add("highlight");
+});
+
+document.getElementById("videoBox").addEventListener("mouseout", function() {
+    this.classList.remove("highlight");
+});
+
+</script>
+
+</body>
+</html>
